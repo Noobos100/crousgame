@@ -1,0 +1,34 @@
+{
+    "name": "camera",
+    "maps": [
+        {
+            "name": "player",
+            "id": "2e66e094-61d6-408f-b017-242134ac8f25",
+            "actions": [
+                {
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "a0a0b931-9703-4acf-a908-6a76a92b7933",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "72b490d9-62f3-4818-8d24-99a563b3933e",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
