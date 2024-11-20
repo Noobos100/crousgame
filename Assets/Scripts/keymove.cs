@@ -10,6 +10,20 @@ public class keymove : MonoBehaviour
     public Rigidbody _rb;
     public float rotationSpeed;
     static readonly int Speed = Animator.StringToHash("Speed");
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
+
+    public bool isGrounded;
+
+    void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+    }
+
+    void OnCollisionStay(){
+        isGrounded = true;
+    }
 
     void Update()
     {
@@ -33,6 +47,12 @@ public class keymove : MonoBehaviour
         {
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+
+            _rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 
