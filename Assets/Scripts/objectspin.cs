@@ -13,7 +13,6 @@ public class ObjectSpin : MonoBehaviour
     // Object spins on the x axis
     void Update()
     {
-        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
-        
+        transform.Rotate(Vector3.right * Time.deltaTime * 50);
     }
 }
