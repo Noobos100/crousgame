@@ -1460,7 +1460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: 0.049
       objectReference: {fileID: 0}
     - target: {fileID: 1438546959266459337, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2178,8 +2178,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.87, z: -4.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2034780361}
+  m_Children: []
   m_Father: {fileID: 1667677427}
   m_LocalEulerAnglesHint: {x: 6.703, y: 0, z: 0}
 --- !u!114 &963194229
@@ -2220,6 +2219,7 @@ MonoBehaviour:
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   isGrounded: 0
+  cameraTransform: {fileID: 1667677427}
 --- !u!95 &982667302 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4540229000190281644, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
@@ -3184,6 +3184,7 @@ MonoBehaviour:
   jump: {x: 0, y: 0, z: 0}
   jumpForce: 2
   isGrounded: 0
+  cameraTransform: {fileID: 0}
 --- !u!1001 &1493306935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4137,16 +4138,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034780358}
-  m_LocalRotation: {x: -0.058458194, y: -0, z: -0, w: 0.99828994}
-  m_LocalPosition: {x: 0, y: 0, z: 4.831}
-  m_LocalScale: {x: 0.12286569, y: 0.15318143, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0045752525}
+  m_LocalScale: {x: 0.12286569, y: 0.15318142, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 963194228}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.60409385, y: -0.5}
+  m_AnchoredPosition: {x: -1.2081878, y: 18.159676}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2060197187
@@ -4413,4 +4414,5 @@ SceneRoots:
   - {fileID: 1235182941}
   - {fileID: 1759452731}
   - {fileID: 1646442308}
+  - {fileID: 2034780361}
   - {fileID: 1544555517}
