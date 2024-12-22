@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // Singleton instance
      // Reference to the TextMeshPro component
-    public TextMeshPro counterText;
+    public TextMeshProUGUI counterText;
 
     private int pickupCount = 0; // Counter for pickups
 
