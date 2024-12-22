@@ -9,11 +9,13 @@ public class enemyAI : MonoBehaviour
     private bool returningToOrigin = false; // Track if the enemy is returning to origin
     public float touchCooldown = 1.5f; // Time to wait after touching player
     private float touchCooldownTimer = 0.0f; // Timer for touch cooldown
+    private float patrolSpeed; // Separate speed for patrolling
 
     // Start is called before the first frame update
     void Start()
     {
         originalPosition = transform.position; // Store the original position
+        patrolSpeed = speed; // Set patrol speed
     }
 
     // Update is called once per frame
@@ -65,27 +67,27 @@ public class enemyAI : MonoBehaviour
         else
         {
             // Walk back and forth at the original position
-            movementDirection = Vector3.right * Mathf.Sign(speed);
+            movementDirection = Vector3.right * Mathf.Sign(patrolSpeed);
             movementDirection.y = 0; // Ensure movement stays on the ground
-            transform.position += movementDirection * Mathf.Abs(speed) * Time.deltaTime;
+            transform.position += movementDirection * Mathf.Abs(patrolSpeed) * Time.deltaTime;
 
             if (transform.position.x > originalPosition.x + 2)
             {
                 transform.position = new Vector3(originalPosition.x + 2, transform.position.y, transform.position.z);
-                speed = -Mathf.Abs(speed); // Change direction to left
+                patrolSpeed = -Mathf.Abs(patrolSpeed); // Change direction to left
             }
             if (transform.position.x < originalPosition.x - 2)
             {
                 transform.position = new Vector3(originalPosition.x - 2, transform.position.y, transform.position.z);
-                speed = Mathf.Abs(speed); // Change direction to right
+                patrolSpeed = Mathf.Abs(patrolSpeed); // Change direction to right
             }
         }
 
         // Rotate to face the movement direction
-        if (movementDirection != Vector3.zero)
+        if (movementDirection.magnitude > 0.01f) // Avoid rotating for negligible movement
         {
             Quaternion targetRotation = Quaternion.LookRotation(movementDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f); // Smooth rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10.0f);
         }
     }
 }
