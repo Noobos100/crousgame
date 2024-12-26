@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class keymove : MonoBehaviour
+public class KeyMove : MonoBehaviour
 {
     public float speed;
     public float sprintSpeed;
@@ -13,7 +13,10 @@ public class keymove : MonoBehaviour
     public Vector3 jump;
     public float jumpForce = 2.0f;
 
-    public bool isGrounded;
+    private bool isGrounded;
+    public Transform cameraTransform; // Reference to the camera's transform
+    private bool canMove = true; // Flag to determine if the player can move
+
 
     void Start()
     {
@@ -21,16 +24,33 @@ public class keymove : MonoBehaviour
         jump = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
-    void OnCollisionStay(){
+    void OnCollisionStay()
+    {
         isGrounded = true;
     }
 
     void Update()
     {
+
+        if (!canMove) return;
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        // Get the camera's forward and right vectors
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        // Ensure the vectors are normalized and ignore the y-component for movement
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+
+        // Calculate the movement direction relative to the camera
+        Vector3 movementDirection = forward * verticalInput + right * horizontalInput;
+
+        // Normalize the movement direction
         movementDirection.Normalize();
 
         // Move the character
@@ -49,11 +69,17 @@ public class keymove : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
-
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
             _rb.AddForce(jump * jumpForce, ForceMode.Impulse);
             isGrounded = false;
         }
+    }
+
+    // Method to disable movement
+    public void DisableMovement()
+    {
+        canMove = false;
     }
 
     // Method to update the animator with the current speed

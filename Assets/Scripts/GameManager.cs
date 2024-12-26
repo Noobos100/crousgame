@@ -1,14 +1,15 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Required for UI components
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; // Singleton instance
-     // Reference to the TextMeshPro component
-    public TextMeshProUGUI counterText;
 
-    private int pickupCount = 0; // Counter for pickups
+    public TextMeshProUGUI counterText; // Reference to the pickup counter text
+    public TextMeshProUGUI healthText;  // Reference to the health text
+
+    private DamagePlayer damagePlayer;  // Reference to the DamagePlayer script
+    private int pickupCount = 0;        // Counter for pickups
 
     private void Awake()
     {
@@ -24,6 +25,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // Find and reference the DamagePlayer script
+        damagePlayer = FindObjectOfType<DamagePlayer>();
+        UpdateUI();
+    }
+
+    private void Update()
+    {
+        if (damagePlayer != null)
+        {
+            // Update health text dynamically
+            UpdateHealthText(damagePlayer.playerHealth);
+        }
+    }
+
     public void AddPickup()
     {
         pickupCount++;
@@ -35,6 +52,19 @@ public class GameManager : MonoBehaviour
         if (counterText != null)
         {
             counterText.text = "Cookies: " + pickupCount;
+        }
+
+        if (healthText != null && damagePlayer != null)
+        {
+            healthText.text = "Health: " + damagePlayer.playerHealth + "%";
+        }
+    }
+
+    private void UpdateHealthText(int health)
+    {
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + health + "%";
         }
     }
 }
