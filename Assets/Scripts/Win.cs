@@ -17,11 +17,9 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called une fois par frame
     void Update()
     {
-        if (levelWon)
-        {
-            // Faire tourner le trophée
+            // Faire tourner le trophée sur l'axe Y
             transform.Rotate(Vector3.up * Time.deltaTime * 50);
-        }
+        
     }
 
     // Méthode pour appeler lorsque le niveau est gagné
@@ -38,6 +36,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Collision détectée avec le joueur.");
             WinLevel();
         }
     }
