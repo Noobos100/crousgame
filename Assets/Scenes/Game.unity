@@ -3512,6 +3512,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1011793988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8024351493243979244, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  m_PrefabInstance: {fileID: 778770377}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097797500 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6804109760536669345, guid: 299c8351b2bfc7845912e60896f12861, type: 3}
@@ -3616,11 +3621,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4500247197365784, guid: abc98a3329f924b4680c86edde08968d, type: 3}
   m_PrefabInstance: {fileID: 1719497057}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1203040660 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4020360767693765181, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
-  m_PrefabInstance: {fileID: 778770377}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1235182939
 GameObject:
@@ -4815,9 +4815,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf68cfff2a79c934c94c0aa808539460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pickupSound: {fileID: 1636251077}
-  m_handPosition: {fileID: 1203040660}
-  m_handRotation: {fileID: 1203040660}
+  pickupSound: {fileID: 1636251077}
+  handPosition: {fileID: 1011793988}
 --- !u!1001 &1646442308
 PrefabInstance:
   m_ObjectHideFlags: 0
