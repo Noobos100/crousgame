@@ -51,12 +51,34 @@ public class DamagePlayer : MonoBehaviour
 
                 // Set the Animator's isDead parameter
                 animator.SetBool("isDead", true);
-                
+
                 // Disable movement
                 if (movementScript != null)
                 {
                     movementScript.DisableMovement();
                 }
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        // Check if the player entered a "KillZone"
+        if (other.gameObject.tag == "KillZone")
+        {
+            // Player is dead
+            playerHealth = 0;
+            Debug.Log("Player is dead!");
+            m_deathSound.Play();
+            isDead = true;
+
+            // Set the Animator's isDead parameter
+            animator.SetBool("isDead", true);
+
+            // Disable movement
+            if (movementScript != null)
+            {
+                movementScript.DisableMovement();
             }
         }
     }
