@@ -8,7 +8,6 @@ public class Pickable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger : " + other.name);
         if (other.tag == "Player")
         {
             // Play the pickup sound
