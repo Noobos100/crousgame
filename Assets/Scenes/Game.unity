@@ -1404,7 +1404,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148749283963}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 10fa50c59af8fd440a0348904414802a, type: 3}
   m_Controller: {fileID: 9100000, guid: b32edbf63e1aaa148b0e9efe0fec9edc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -7642,7 +7642,7 @@ GameObject:
   - component: {fileID: 369486845}
   m_Layer: 0
   m_Name: Keys
-  m_TagString: Untagged
+  m_TagString: Key
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7657,6 +7657,8 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652939380929}
   - component: {fileID: 654416315}
+  - component: {fileID: 919132148749283965}
+  - component: {fileID: 919132148749283964}
   m_Layer: 0
   m_Name: Chest_Animated
   m_TagString: Untagged
@@ -7664,6 +7666,42 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148749283964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148749283963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ebe9608cf9c65409c421bf0072f58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chestAnimator: {fileID: 654416315}
+  itemToSpawn: {fileID: 919132147937772223}
+  spawnPoint: {fileID: 847628593384881015}
+--- !u!65 &919132148749283965
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148749283963}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7736294, y: 0.4705356, z: 0.55231625}
+  m_Center: {x: 0.001419887, y: 0.2352678, z: 0.0028479397}
 --- !u!1 &919132148917195306
 GameObject:
   m_ObjectHideFlags: 0
@@ -8986,7 +9024,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652939380929}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.095306, y: 180, z: -180}
 --- !u!4 &2420493218900296803
 Transform:
   m_ObjectHideFlags: 0
@@ -10843,7 +10881,6 @@ GameObject:
   - component: {fileID: 6898253857412967432}
   - component: {fileID: 6898253857412967434}
   - component: {fileID: 6898253857412967433}
-  - component: {fileID: 6898253857412967435}
   m_Layer: 0
   m_Name: Chest_Bottom
   m_TagString: Untagged
@@ -12263,7 +12300,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583663098688262918}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2ebe9608cf9c65409c421bf0072f58a, type: 3}
   m_Name: 
@@ -12288,31 +12325,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.7736294, y: 0.4705356, z: 0.55231625}
   m_Center: {x: 0.001419887, y: 0.2352678, z: 0.0028479397}
---- !u!95 &6898253857412967435
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4583663098688262918}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 10fa50c59af8fd440a0348904414802a, type: 3}
-  m_Controller: {fileID: 9100000, guid: b32edbf63e1aaa148b0e9efe0fec9edc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6903486878524743089
 GameObject:
   m_ObjectHideFlags: 0

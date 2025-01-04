@@ -8,11 +8,11 @@ public class Chest : MonoBehaviour
     public GameObject itemToSpawn;
     public Transform spawnPoint;
     private bool isOpened = false;
-    private bool playerInRange = false; // Indique si le joueur est à portée
+    private bool playerInRange = false; // Indique si le joueur est ï¿½ portï¿½e
 
     private void OnTriggerEnter(Collider other)
     {
-        // Vérifiez si l'objet entrant est le joueur
+        // Vï¿½rifiez si l'objet entrant est le joueur
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
@@ -21,7 +21,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // Vérifiez si l'objet sortant est le joueur
+        // Vï¿½rifiez si l'objet sortant est le joueur
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
@@ -30,10 +30,10 @@ public class Chest : MonoBehaviour
 
     private void Update()
     {
-        // Vérifiez si le joueur est à portée, a récupéré la clé et appuie sur la touche E
+        // Vï¿½rifiez si le joueur est ï¿½ portï¿½e, a rï¿½cupï¿½rï¿½ la clï¿½ et appuie sur la touche E
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            pickupKey keyScript = GameObject.FindWithTag("Player").GetComponent<pickupKey>();
+            pickupKey keyScript = GameObject.FindWithTag("Key").GetComponent<pickupKey>();
             if (keyScript != null && keyScript.isPickedUp && !isOpened)
             {
                 isOpened = true;
@@ -44,8 +44,8 @@ public class Chest : MonoBehaviour
                     chestAnimator.SetTrigger("Chest_Animated");
                 }
 
-                // Faire apparaître l'objet après un court délai pour synchroniser avec l'animation
-                StartCoroutine(SpawnItemWithDelay(1.0f)); // Ajustez le délai selon la durée de l'animation
+                // Faire apparaï¿½tre l'objet aprï¿½s un court dï¿½lai pour synchroniser avec l'animation
+                StartCoroutine(SpawnItemWithDelay(1.0f)); // Ajustez le dï¿½lai selon la durï¿½e de l'animation
             }
         }
     }
