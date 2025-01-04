@@ -10,8 +10,6 @@ public class DamagePlayer : MonoBehaviour
     public AudioSource m_damageSound; // Damage sound
     public AudioSource m_deathSound; // Death sound
 
-    private bool isDead = false;
-
     public Animator animator; // Reference to the Animator
     private KeyMove movementScript; // Reference to the KeyMove script
     public HealthBar healthBar; // Reference to the HealthBar script
@@ -42,21 +40,10 @@ public class DamagePlayer : MonoBehaviour
             m_damageSound.Play();
 
             // Check if the player's health is less than or equal to 0
-            if (playerHealth <= 0 && !isDead)
+            if (playerHealth <= 0)
             {
                 // Player is dead
-                Debug.Log("Player is dead!");
-                m_deathSound.Play();
-                isDead = true;
-
-                // Set the Animator's isDead parameter
-                animator.SetBool("isDead", true);
-
-                // Disable movement
-                if (movementScript != null)
-                {
-                    movementScript.DisableMovement();
-                }
+                playerDeath();
             }
         }
     }
@@ -69,17 +56,34 @@ public class DamagePlayer : MonoBehaviour
             // Player is dead
             playerHealth = 0;
             Debug.Log("Player is dead!");
-            m_deathSound.Play();
-            isDead = true;
-
-            // Set the Animator's isDead parameter
-            animator.SetBool("isDead", true);
-
-            // Disable movement
-            if (movementScript != null)
-            {
-                movementScript.DisableMovement();
-            }
+            playerDeath();
         }
+    }
+
+    void playerDeath()
+    {
+        m_deathSound.Play();
+
+
+        // Disable movement
+        if (movementScript != null)
+        {
+            movementScript.DisableMovement();
+        }
+
+        // Set the Animator's isDead parameter
+        animator.SetBool("isDead", true);
+
+        // Wait for 3 seconds then load the GameOver scene
+        StartCoroutine(LoadGameOver());
+    }
+
+    IEnumerator LoadGameOver()
+    {
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(3);
+
+        // Load the GameOver scene
+        SceneManager.LoadScene("GameOver");
     }
 }
