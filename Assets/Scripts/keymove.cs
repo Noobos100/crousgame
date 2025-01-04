@@ -81,6 +81,7 @@ public class KeyMove : MonoBehaviour
     public void DisableMovement()
     {
         canMove = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Method to update the animator with the current speed
