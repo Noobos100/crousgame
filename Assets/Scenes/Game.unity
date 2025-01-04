@@ -1239,6 +1239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 0}
   headPosition: {fileID: 3696354557465441563}
+  isPickedUp: 0
 --- !u!82 &369486845
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10838,6 +10839,9 @@ GameObject:
   - component: {fileID: 4091253426073040711}
   - component: {fileID: 276074286293264160}
   - component: {fileID: 6898253857412967432}
+  - component: {fileID: 6898253857412967434}
+  - component: {fileID: 6898253857412967433}
+  - component: {fileID: 6898253857412967435}
   m_Layer: 0
   m_Name: Chest_Bottom
   m_TagString: Untagged
@@ -12250,6 +12254,63 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6898253857412967433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583663098688262918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ebe9608cf9c65409c421bf0072f58a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chestAnimator: {fileID: 654416315}
+  itemToSpawn: {fileID: 919132147937772223}
+  spawnPoint: {fileID: 847628593384881015}
+--- !u!65 &6898253857412967434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583663098688262918}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7736294, y: 0.4705356, z: 0.55231625}
+  m_Center: {x: 0.001419887, y: 0.2352678, z: 0.0028479397}
+--- !u!95 &6898253857412967435
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4583663098688262918}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 10fa50c59af8fd440a0348904414802a, type: 3}
+  m_Controller: {fileID: 9100000, guid: b32edbf63e1aaa148b0e9efe0fec9edc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6903486878524743089
 GameObject:
   m_ObjectHideFlags: 0

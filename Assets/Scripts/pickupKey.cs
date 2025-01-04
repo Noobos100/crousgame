@@ -9,7 +9,7 @@ public class pickupKey : MonoBehaviour
     // Player's head position and rotation
     public Transform headPosition;
 
-    private bool isPickedUp = false; // Tracks if the object has been picked up
+    public bool isPickedUp = false; // Tracks if the object has been picked up
     private Rigidbody rb;
     private ObjectSpin spinScript; // Reference to the spinning script
 
