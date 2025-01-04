@@ -55,6 +55,7 @@ public class DamagePlayer : MonoBehaviour
         {
             // Player is dead
             playerHealth = 0;
+            healthBar.SetMaxHealth(playerHealth);
             Debug.Log("Player is dead!");
             playerDeath();
         }
