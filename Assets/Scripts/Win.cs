@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    // Variable pour vérifier si le niveau est gagné
+    // Variable pour vÃ©rifier si le niveau est gagnÃ©
     private bool levelWon = false;
 
     void Start()
     {
+        
     }
 
     // Update is called une fois par frame
@@ -18,24 +19,27 @@ public class NewBehaviourScript : MonoBehaviour
         transform.Rotate(Vector3.up * Time.deltaTime * 50);
     }
 
-    // Méthode pour appeler lorsque le niveau est gagné
+    // MÃ©thode pour appeler lorsque le niveau est gagnÃ©
     public void WinLevel()
     {
         if (!levelWon)
         {
             Debug.Log("Win!");
             levelWon = true;
-            // Charger la scène de victoire
+            // Charger la scÃ©ne de victoire
+
+            // DÃ©verrouiller le curseur
+            Cursor.lockState = CursorLockMode.None;
+
             SceneManager.LoadScene("Win");
         }
     }
 
-    // Détecter la collision avec le joueur
+    // DÃ©tecter la collision avec le joueur
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Collision détectée avec le joueur.");
             WinLevel();
         }
     }
