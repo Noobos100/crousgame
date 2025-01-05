@@ -9,6 +9,7 @@ public class DamagePlayer : MonoBehaviour
     public int damageAmount = 10; // Damage amount
     public AudioSource m_damageSound; // Damage sound
     public AudioSource m_deathSound; // Death sound
+    public AudioSource m_splashSound; // Splash sound
 
     public Animator animator; // Reference to the Animator
     private KeyMove movementScript; // Reference to the KeyMove script
@@ -57,6 +58,7 @@ public class DamagePlayer : MonoBehaviour
             playerHealth = 0;
             healthBar.SetMaxHealth(playerHealth);
             Debug.Log("Player is dead!");
+            m_splashSound.Play();
             playerDeath();
         }
     }
