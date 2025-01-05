@@ -4,3 +4,4 @@ Pour que ce projet fonctionne, il faut impérativement installer les packets Uni
 
 - Input System
 - TextMeshPro
+- URP
