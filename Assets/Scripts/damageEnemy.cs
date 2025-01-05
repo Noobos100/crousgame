@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class DamageEnemy : MonoBehaviour
 {
-    public int enemyHealth = 100; // enemy's health
-    public int damageAmount = 100; // Damage amount
     public AudioSource m_damageSound; // Damage sound
     
     void Start()
