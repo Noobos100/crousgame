@@ -4401,7 +4401,7 @@ GameObject:
   - component: {fileID: 1083845914}
   - component: {fileID: 1083845913}
   m_Layer: 5
-  m_Name: OuvreCoffre
+  m_Name: Tips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5805,6 +5805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 1636251077}
   handPosition: {fileID: 8024351493950132773}
+  messageText: {fileID: 1083845913}
 --- !u!135 &1636251079
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7448,7 +7449,7 @@ Transform:
   m_GameObject: {fileID: 919132147937772223}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.39, y: -2.5, z: 12.79}
+  m_LocalPosition: {x: -3.41, y: -2.5, z: 12.79}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 0
   m_Children:
