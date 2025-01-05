@@ -11,6 +11,7 @@ public class Chest : MonoBehaviour
     public TextMeshProUGUI promptText; // Reference to the UI text
     private bool isOpened = false;
     private bool playerInRange = false;
+    public AudioSource m_openChest; // Damage sound
 
     private void OnTriggerEnter(Collider other)
     {
@@ -43,6 +44,7 @@ public class Chest : MonoBehaviour
                 if (chestAnimator != null)
                 {
                     chestAnimator.SetTrigger("Chest_Animated");
+                    m_openChest.Play();
                 }
 
                 // Hide the prompt text
