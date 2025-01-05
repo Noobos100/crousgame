@@ -1,36 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // For TextMeshPro
 
 public class Chest : MonoBehaviour
 {
     public Animator chestAnimator;
     public GameObject itemToSpawn;
     public Transform spawnPoint;
+    public TextMeshProUGUI promptText; // Reference to the UI text
     private bool isOpened = false;
-    private bool playerInRange = false; // Indique si le joueur est � port�e
+    private bool playerInRange = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        // V�rifiez si l'objet entrant est le joueur
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            UpdatePromptText(); // Update the prompt text when the player enters range
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        // V�rifiez si l'objet sortant est le joueur
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            HidePromptText(); // Hide the prompt text when the player exits range
         }
     }
 
     private void Update()
     {
-        // V�rifiez si le joueur est � port�e, a r�cup�r� la cl� et appuie sur la touche E
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
             pickupKey keyScript = GameObject.FindWithTag("Key").GetComponent<pickupKey>();
@@ -38,14 +39,20 @@ public class Chest : MonoBehaviour
             {
                 isOpened = true;
 
-                // Jouer l'animation d'ouverture du coffre
+                // Play the chest opening animation
                 if (chestAnimator != null)
                 {
                     chestAnimator.SetTrigger("Chest_Animated");
                 }
 
-                // Faire appara�tre l'objet apr�s un court d�lai pour synchroniser avec l'animation
-                StartCoroutine(SpawnItemWithDelay(1.0f)); // Ajustez le d�lai selon la dur�e de l'animation
+                // Hide the prompt text
+                HidePromptText();
+
+                // Spawn the item after a delay
+                StartCoroutine(SpawnItemWithDelay(1.0f)); // Adjust the delay based on the animation duration
+
+                // Destroy the key
+                Destroy(GameObject.FindWithTag("Key"));
             }
         }
     }
@@ -57,6 +64,27 @@ public class Chest : MonoBehaviour
         if (itemToSpawn != null && spawnPoint != null)
         {
             Instantiate(itemToSpawn, spawnPoint.position, spawnPoint.rotation);
+        }
+    }
+
+    private void UpdatePromptText()
+    {
+        if (promptText != null)
+        {
+            pickupKey keyScript = GameObject.FindWithTag("Key").GetComponent<pickupKey>();
+            if (keyScript != null && keyScript.isPickedUp && !isOpened)
+            {
+                promptText.text = "Appuyez sur E pour ouvrir le coffre";
+                promptText.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void HidePromptText()
+    {
+        if (promptText != null)
+        {
+            promptText.gameObject.SetActive(false);
         }
     }
 }
