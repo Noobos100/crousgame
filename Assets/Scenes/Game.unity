@@ -4282,7 +4282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cf2c18e15a86b4a98bce8661126988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_attackCollider: {fileID: 0}
+  m_attackCollider: {fileID: 1636251079}
   m_isAttacking: 0
 --- !u!1 &1028943264
 GameObject:
